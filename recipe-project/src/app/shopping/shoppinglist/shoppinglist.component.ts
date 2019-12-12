@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shoppinglist.component.css']
 })
 export class ShoppinglistComponent implements OnInit {
+  ingredients = [];
 
   constructor() { }
 
