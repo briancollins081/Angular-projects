@@ -1,0 +1,7 @@
+.dropdown > button{
+    color: rgb(160, 160, 160);
+}
+.dropdown > button:active, 
+.dropdown > button:hover{
+    color: #fff;
+}

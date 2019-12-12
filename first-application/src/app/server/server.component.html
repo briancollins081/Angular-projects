@@ -1,0 +1,33 @@
+.<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5 [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{online: serverStatus === statusValues[0]}"
+                class="card-title btn">Server with ID: {{ serverId }}</h5>
+            <h6 [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{online: serverStatus === statusValues[0]}"
+                class="card-text btn btn-block text-left">Server Status: {{ getServerStatus() }}</h6>
+            <button class="btn btn-primary" type="button" (click)="onShowDetails($event)" >Display Details</button>
+        </div>
+        <div class="card" *ngIf="showDetails">
+            <div class="card-body">
+                <h5 class="card-title">Server Details</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga dolore mollitia
+                    minima expedita ipsa! In modi voluptatibus voluptatum. Iste earum quis quia corrupti aperiam
+                    delectus animi tempore, officiis cum nihil? </p>
+                    <hr>
+                    Event log:
+                    <!-- <p *ngFor="let displayEvent of displayEvents"  -->
+                    <p *ngFor="let displayEvent of displayEvents; let i=index" 
+                    [ngStyle]="{backgroundColor: getBg(displayEvent) }"
+                    [ngClass]="{textwhite : whiteTextColor(displayEvent)}">
+                        Event No: {{ displayEvents.indexOf(displayEvent)+1 }} - Event Name: {{displayEvent}}
+                    </p>
+            </div>
+            <div class="card-footer">
+                Server Running from Kenya.
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <h6 [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{online: serverStatus === statusValues[0]}">
+    Server with ID {{ serverId }} is {{ getServerStatus() }}.
+</h6> -->

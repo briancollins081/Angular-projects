@@ -1,0 +1,25 @@
+<label for="servername" class="control-label">Server Name</label>
+<!-- <input type="text" name="servername" id="servername" (input)="onUpdateServerName($event)" class="form-control"> -->
+<input type="text" name="servername" id="servername" [(ngModel)]="serverName" class="form-control">
+<!-- <p *ngIf="serverCreated" >{{ serverName }}</p> -->
+<br>
+
+<button class="btn btn-info" [disabled]="allowNewServer" (click)="onCreateServer()">Add a New Server</button>
+
+<p *ngIf="serverCreated; else noServerCreated">{{serverCreationStatus}}</p>
+<!-- <ng-template #noServerCreated>
+    <p>No server has been created.</p>
+</ng-template> -->
+<hr>
+
+<app-server *ngFor="let server of servers"></app-server>
+
+<div class="input-group">
+    <input [(ngModel)]="animalName" class="form-control" type="text" name="animal" placeholder="Input any animal name." aria-label="Text Holder" aria-describedby="my-addon">
+    <div class="input-group-append">
+        <span class="input-group-text" id="my-addon"><i class="fas fa-dove"></i>&nbsp;</span>
+    </div>
+</div>
+<p>{{ animalName }}</p>
+
+<button [disabled]="animalName.length > 0 ? false : true" class="btn btn-sm btn-outline-primary" (click)="resetAnimalName()">Click Me</button>
