@@ -19,7 +19,7 @@
                     <p *ngFor="let displayEvent of displayEvents; let i=index" 
                     [ngStyle]="{backgroundColor: getBg(displayEvent) }"
                     [ngClass]="{textwhite : whiteTextColor(displayEvent)}">
-                        Event No: {{displayEvents.indexOf(displayEvent)+1}} - Event Name: {{displayEvent}}
+                        Event No: {{ displayEvents.indexOf(displayEvent)+1 }} - Event Name: {{displayEvent}}
                     </p>
             </div>
             <div class="card-footer">
