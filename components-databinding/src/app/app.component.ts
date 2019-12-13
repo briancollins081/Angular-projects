@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   serverElements = [
-    {type: 'server', name:'Test server', content: 'Testing runs'}
+    {type: 'server', name:'Test server v.1', content: 'It has grossed $930 million worldwide, had the highest all-time worldwide opening for an animated film, and is the thirteenth highest-grossing animated film of time and the eighth highest-grossing film of 2019.'},
+    {type: 'blueprint', name:'Test server blueprint v.1', content: 'It has grossed $930 million worldwide, had the highest all-time worldwide opening for an animated film, and is the thirteenth highest-grossing animated film of time and the eighth highest-grossing film of 2019.'}
   ];
   
   onServerAdded(serverData: {serverName: string, serverContent: string}) {
