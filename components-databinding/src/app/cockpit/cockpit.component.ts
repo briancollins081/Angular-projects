@@ -9,9 +9,9 @@ export class CockpitComponent implements OnInit {
   @Output('sCreated') serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   @Output('bpCreated') blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
 
-  //newServerName = '';
+  // newServerName = '';
   // newServerContent = '';
-  @ViewChild("serverContentInput", {static: false}) serverContentInput: ElementRef;
+  @ViewChild("serverContentInput", {static: true}) serverContentInput: ElementRef;
   constructor() { }
 
   ngOnInit() {
