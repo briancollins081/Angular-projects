@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <app-gamecontrol (startedGameEvent) = "onStartedGameEvent($event)"></app-gamecontrol>
+    </div>
+  </div>
+  <hr>
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+        <app-even *ngFor="let evenElement of evenElements" [noComponents]="evenElement"></app-even>
+    </div>
+    <div class="col-md-5">
+        <app-odd *ngFor="let oddElement of oddElements" [noComponents]="oddElement"></app-odd>
+    </div>    
+  </div>
+</div>
