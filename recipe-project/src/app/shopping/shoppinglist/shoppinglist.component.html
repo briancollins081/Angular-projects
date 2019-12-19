@@ -1,4 +1,4 @@
-<ul class="list-group">
+<ul class="list-group" (sendItemToList)="addNewItem($event)">
     <a class="list-group-item" *ngFor="let ingridient of ingredients" >
         {{ ingridient.name }} <span class="badge badge-success badge-pill ml-auto">{{ ingridient.amount }}</span>
     </a>
