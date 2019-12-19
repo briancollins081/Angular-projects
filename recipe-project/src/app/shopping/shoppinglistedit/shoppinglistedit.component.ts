@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Ingredient } from 'src/app/shared/ingredient.model';
 
 @Component({
@@ -7,17 +7,22 @@ import { Ingredient } from 'src/app/shared/ingredient.model';
   styleUrls: ['./shoppinglistedit.component.css']
 })
 export class ShoppinglisteditComponent implements OnInit {
-  @ViewChild('shoppingItemName', {static: true}) shoppingItemName;
-  @ViewChild('shoppingItemAmount', {static: true}) shoppingItemAmount;
+  @ViewChild('nameRef', {static: true}) itemName:ElementRef;
+  @ViewChild('amountRef', {static: true}) itemAmount:ElementRef;
+  
+  @Output() ingredientAdd = new EventEmitter<Ingredient>();
 
-  @Output() addShoppingItem = new EventEmitter<Ingredient>();
   constructor() { }
 
   ngOnInit() {
   }
 
-  submitAddShoppingForm(){
-    this.addShoppingItem.emit(new Ingredient(this.shoppingItemName, this.shoppingItemAmount));
+  onAddNewItem(){
+    const name = this.itemName.nativeElement.value;
+    const amount = this.itemAmount.nativeElement.value;
+    const ingredient = new Ingredient(name, amount);
+    console.log(ingredient);
+    
+    this.ingredientAdd.emit(ingredient);
   }
-
 }
