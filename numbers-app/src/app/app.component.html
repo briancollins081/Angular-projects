@@ -5,10 +5,24 @@
       <hr>
       <ul class="list-group mt-4">
         <div *ngIf="onlyOdd">
-          <li class="list-group-item" *ngFor="let n of oddNumbers">{{n}}</li>
+          <li 
+            class="list-group-item" 
+            *ngFor="let n of oddNumbers" 
+            [ngClass]="{odd: n % 2 !== 0}"
+            [ngStyle]="{backgroundColor: n % 2 === 1 ? 'olive': 'transparent'}"
+          >
+            {{n}}
+          </li>
         </div>
         <div *ngIf="!onlyOdd">
-          <li class="list-group-item" *ngFor="let n of evenNumbers">{{n}}</li>
+          <li 
+            class="list-group-item" 
+            *ngFor="let n of evenNumbers" 
+            [ngClass]="{odd: n % 2 !== 0}"
+            [ngStyle]="{backgroundColor: n % 2 === 1 ? 'olive': 'transparent'}"
+          >
+            {{n}}
+          </li>
         </div>
       </ul>
     </div>
