@@ -1,0 +1,16 @@
+<div class="container p-4">
+  <div class="row">
+    <div class="col-lg-12">
+      <button class="btn btn-primary" type="button" (click)="onlyOdd=!onlyOdd">Only show odd numbers.</button>
+      <hr>
+      <ul class="list-group mt-4">
+        <div *ngIf="onlyOdd">
+          <li class="list-group-item" *ngFor="let n of oddNumbers">{{n}}</li>
+        </div>
+        <div *ngIf="!onlyOdd">
+          <li class="list-group-item" *ngFor="let n of evenNumbers">{{n}}</li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'numbers-app';
+  oddNumbers: number[] = [1,3,5,7,9];
+  evenNumbers: number[] = [2,4,6,8]
+  onlyOdd: boolean = false;
 }
