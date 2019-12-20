@@ -50,6 +50,58 @@
       </ul>
       <p appBasicHighlight class="p-3 my-2">Style me using basic directive</p>
       <p appBetterHighlight class="p-3 my-2" [defaultColor]="'pink'" [appBetterHighlight]="'purple'">Style me using better directive</p>
+      
+      <div [ngSwitch]="value">
+        <div *ngSwitchCase="10">
+          <div class="card">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <div class="alert alert-danger" role="alert">
+                    New Value Message
+                  </div>
+                </h5>
+              <p class="card-text">The value is 10!</p>
+            </div>
+          </div>
+        </div>
+        <div *ngSwitchCase="100">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <div class="alert alert-danger" role="alert">
+                  New Value Message
+                </div>
+              </h5>
+              <p class="card-text">The value is 100!</p>
+            </div>
+          </div>
+        </div>
+        <div *ngSwitchCase="1000">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <div class="alert alert-danger" role="alert">
+                  New Value Message
+                </div>
+              </h5>
+              <p class="card-text">The value is 1000!</p>
+            </div>
+          </div>
+        </div>
+        <div *ngSwitchDefault>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <div class="alert alert-danger" role="alert">
+                  New Value Message
+                </div>
+              </h5>
+              <p class="card-text">The value is 500!</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
