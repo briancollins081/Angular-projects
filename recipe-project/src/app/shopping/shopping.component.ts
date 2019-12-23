@@ -1,26 +1,20 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Ingredient } from '../shared/ingredient.model';
+import { ShoppingListService } from './shoppinglist.service';
 
 @Component({
   selector: 'app-shopping',
   templateUrl: './shopping.component.html',
-  styleUrls: ['./shopping.component.css']
+  styleUrls: ['./shopping.component.css'],
+  providers: [ShoppingListService]
 })
 export class ShoppingComponent implements OnInit {
-  ingredients: Ingredient[] = [
-    new Ingredient('Onions', 5),
-    new Ingredient('Tomatoes', 10)
-  ];
 
   @ViewChild('shoppinglistedit', {static: true}) shoppinglisteditRef;
   @ViewChild('shoppinglist', {static: true}) shoppinglistRef;
   
-  constructor() { }
+  constructor(private shoppingListService: ShoppingListService) { }
 
   ngOnInit() {
-  }
-
-  addNewIngredient(i){
-    this.ingredients.push(i);
   }
 }

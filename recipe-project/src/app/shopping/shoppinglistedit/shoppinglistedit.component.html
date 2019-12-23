@@ -12,14 +12,16 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <button class="btn btn-success mr-2" type="button" (click)="onAddNewItem()"><i class="fas fa-plus-circle"></i>&nbsp;Add
-                    Item</button>
-                <button class="btn btn-danger mx-2" type="button"><i class="far fa-trash-alt"></i>&nbsp;Delete
-                    Item</button>
-                <button class="btn btn-primary mx-2" type="button"><i class="fas fa-adjust"></i>&nbsp;Clear
-                    Item</button>
+                <button class="btn btn-success mr-2" type="button" (click)="onAddNewItem()">
+                    <i class="fas fa-plus-circle"></i>&nbsp;Add Item
+                </button>
+                <button class="btn btn-danger mx-2" type="button">
+                    <i class="far fa-trash-alt" (click)="onDeleteIngredient()"></i>&nbsp;Delete Item
+                </button>
+                <button class="btn btn-primary mx-2" type="button">
+                    <i class="fas fa-adjust" (click)="onClearItem()"></i>&nbsp;Clear Item
+                </button>
             </div>
         </div>
-
     </form>
 </div>
