@@ -1,0 +1,7 @@
+<div class="list-group">
+    <div 
+        class="list-group-item text-white bg-success" 
+        *ngFor="let user of users; let id=index">
+        {{user}} &nbsp; <a href="#" (click)="setToInactive(id)" >Move to Inactive</a>
+    </div>
+</div>
