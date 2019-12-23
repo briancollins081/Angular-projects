@@ -17,9 +17,9 @@ export class AppComponent implements OnInit{
     this.accounts = this.accountService.accounts;
   }
   
-  // onAccountAdded(newAccount: {name: string, status: string}) {
-  //   this.accounts.push(newAccount);
-  // }
+  onAccountAdded(name: string, status: string) {
+    this.accountService.addNewAccount(name, status);
+  }
 
   // onStatusChanged(updateInfo: {id: number, newStatus: string}) {
   //   this.accounts[updateInfo.id].status = updateInfo.newStatus;
