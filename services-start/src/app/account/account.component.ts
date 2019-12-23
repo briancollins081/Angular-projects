@@ -12,12 +12,9 @@ export class AccountComponent {
   @Input() account: {name: string, status: string};
   @Input() id: number;
 
-  constructor(private logginService: LoggingService,
-              private accountService: AccountService){}
+  constructor(private accountService: AccountService){}
 
   onSetTo(status: string) {
-    this.accountService.accounts[this.id].status=status;
-
-    this.logginService.logStatusChange(status);
+    this.accountService.updateAccountStatus(this.id, status);
   }
 }

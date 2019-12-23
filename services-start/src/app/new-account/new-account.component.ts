@@ -9,11 +9,9 @@ import { AccountService } from '../accounts.service';
 })
 export class NewAccountComponent {
   
-  constructor(private logginService: LoggingService, 
-    private accountService: AccountService){}
+  constructor(private accountService: AccountService){}
   
   onCreateAccount(accountName: string, accountStatus: string) {
     this.accountService.addNewAccount(accountName, accountStatus);
-    this.logginService.logStatusChange(accountStatus);
   }
 }
