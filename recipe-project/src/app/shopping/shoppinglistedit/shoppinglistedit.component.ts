@@ -18,14 +18,17 @@ export class ShoppinglisteditComponent implements OnInit {
 
   onAddNewItem(){
     const name = this.itemName.nativeElement.value;
-    const amount = this.itemAmount.nativeElement.value;
+    const amount = +this.itemAmount.nativeElement.value;
     const ingredient = new Ingredient(name, amount);
 
     this.shoppingListService.addIngredient(ingredient);
+    console.log("All ingredients: ");
+    console.log(this.shoppingListService.getIngredients());
+    
   }
 
   onDeleteIngredient(){
-
+    console.log("Public API");
   }
   onClearItem(){
 
