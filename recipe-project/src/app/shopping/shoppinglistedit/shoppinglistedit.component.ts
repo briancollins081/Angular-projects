@@ -28,7 +28,7 @@ export class ShoppinglisteditComponent implements OnInit {
   }
 
   onDeleteIngredient(){
-    console.log("Public API");
+
   }
   onClearItem(){
 
