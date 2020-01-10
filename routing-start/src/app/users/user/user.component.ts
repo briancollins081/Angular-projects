@@ -16,6 +16,13 @@ export class UserComponent implements OnInit {
       id: this.activatedRoute.snapshot.params['id'],
       name: this.activatedRoute.snapshot.params['name']
     }
+    //subcribes to the params parameters
+    this.activatedRoute.params.subscribe(
+      (params)=>{
+        this.user.name = params['name'];
+        this.user.id = params['id'];
+      }
+    );
   }
 
 }
