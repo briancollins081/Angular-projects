@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
   }
-  onActivateLink(link) {
+  /* onActivateLink(link) {
     // console.log(link.innerText.toLowerCase());
     let innerText = link.innerText.toLowerCase();
     switch (innerText) {
@@ -29,5 +29,5 @@ export class AppComponent implements OnInit {
         this.activePath = "users"
         break;
     }
-  }
+  } */
 }
