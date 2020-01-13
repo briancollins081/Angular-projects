@@ -1,9 +1,16 @@
-<div class="card">
-    <img class="card-img-top" src="https://image.freepik.com/free-vector/front-view-dating-app-concept_23-2148260461.jpg" alt="App User">
-    <div class="card-body">
-        <h5 class="card-title">User with ID <span class="badge badge-pill badge-info">{{user.id}}</span> loaded</h5>
-        <h6 class="card-text">User name is: <span class="badge badge-info">{{user.name}}</span></h6>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <img class="img-fluid"
+                src="https://image.freepik.com/free-vector/front-view-dating-app-concept_23-2148260461.jpg"
+                alt="App User">
+        </div>
+        <div class="col-sm-8 d-flex flex-column align-content-center justify-content-around">
+            <h5 class="card-title">User with ID <span class="badge badge-pill badge-info">{{user.id}}</span> loaded
+            </h5>
+            <h6 class="card-text">User name is: <span class="badge badge-info">{{user.name}}</span></h6>
+        </div>
     </div>
+
+    <a [routerLink]="['/users', 10,'Anna']">Load Anna</a>
 </div>
-<hr>
-<a [routerLink]="['/users', 10,'Anna']">Load Anna</a>
