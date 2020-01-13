@@ -17,10 +17,10 @@ export class ServerComponent implements OnInit {
     let id=1;
     this.activatedRoute.params.subscribe((p:Params )=>{
       if(p.id){
-        id=+p.id
+        id=+p.id;
       }
+      this.server = this.serversService.getServer(id);
     })
-    this.server = this.serversService.getServer(id);
   }
 
 }
