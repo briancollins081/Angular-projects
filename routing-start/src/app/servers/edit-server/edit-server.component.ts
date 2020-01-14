@@ -4,6 +4,7 @@ import { ServersService } from '../servers.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { CanComponentDeactivate } from './can-deactivate.guard';
 import { Observable } from 'rxjs';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-edit-server',
@@ -52,12 +53,12 @@ export class EditServerComponent implements OnInit, CanComponentDeactivate {
   }
 
   canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
-    if(!this.allowEdit){
+    if (!this.allowEdit) {
       return true;
     }
-    if((this.serverName!== this.server.name || this.serverStatus !== this.server.status)&& !this.changesSaved){
+    if ((this.serverName !== this.server.name || this.serverStatus !== this.server.status) && !this.changesSaved) {
       return confirm("The changes you made are going to be discarded! continue?");
-    }else{
+    } else {
       return true;
     }
   }

@@ -27,6 +27,7 @@
               "src/styles.css"
             ],
             "scripts": [
+              "node_modules/jquery/dist/jquery.slim.min.js",
               "node_modules/popper.js/dist/umd/popper-utils.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
@@ -42,7 +43,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
+              "extractCss": true, 
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
