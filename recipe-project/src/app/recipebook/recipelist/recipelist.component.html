@@ -4,8 +4,8 @@
     </div>
 </div>
 <hr>
-<div class="row my-4" *ngFor="let recipe of recipes">
+<div class="row my-4" *ngFor="let recipe of recipes; let i = index">
     <div class="col-md-12">
-        <app-recipeitem (click)="selectRecipe(recipe)" [singleRecipe]="recipe"></app-recipeitem>
+        <app-recipeitem (click)="selectRecipe(i)" [singleRecipe]="recipe"></app-recipeitem>
     </div>
 </div>

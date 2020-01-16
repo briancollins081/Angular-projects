@@ -3,11 +3,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { RecipebookComponent } from './recipebook/recipebook.component';
 import { ShoppinglistComponent } from './shopping/shoppinglist/shoppinglist.component';
 import { ShoppingComponent } from './shopping/shopping.component';
+import { NorecipeComponent } from './recipebook/recipedetail/norecipe/norecipe.component';
+import { RecipedetailComponent } from './recipebook/recipedetail/recipedetail.component';
 
 
 const routes: Routes = [
-  {path: '', component: RecipebookComponent},
-  {path: 'recipebook', component: RecipebookComponent},
+  {path: '', redirectTo: '/recipebook', pathMatch: "full"},
+  {path: 'recipebook', component: RecipebookComponent, children:[
+    {path: '', component: NorecipeComponent},
+    {path: ':id', component: RecipedetailComponent}
+  ]},
   {path: 'shoppinglist', component: ShoppingComponent}
 
 ];
