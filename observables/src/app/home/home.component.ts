@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { interval, Subscription, Observable } from 'rxjs';
+import { map, filter } from "rxjs/operators";
 
 @Component({
   selector: 'app-home',
@@ -15,13 +16,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     /* this.countObservableSubscription = interval(1000).subscribe((c => {
       console.log(c);
     })); */
-    const customCountObservable = Observable.create(observer => {
+    const customCountObservable: Observable<any> = Observable.create(observer => {
       let c = 0;
       setInterval(() => {
-        if (c === 3) {
+        if (c === 15) {
           observer.complete();
         }
-        if (c > 3) {
+        if (c > 15) {
           observer.error(new Error('Count has exceeded maximum number: 3'));
         }
         observer.next(c);
@@ -30,7 +31,15 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     });
 
+
     this.customCntObservable = customCountObservable
+      .pipe(
+        filter((data: number) => {
+          return data%2==0;
+        }),
+        map((data: number) => {
+          return 'Round: ' + (data + 1);
+        }))
       .subscribe(
         (data) => {
           console.log(data);
@@ -39,7 +48,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           console.log(error);
           alert(error.message);
         },
-        ()=>{
+        () => {
           console.log("Observable Completed Successfully");
         }
       )
