@@ -14,7 +14,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-      this.id = +params.id;
+      this.id = +params['id'];
     });
   }
 }
