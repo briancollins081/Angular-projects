@@ -19,10 +19,10 @@
         </div>
         <div class="form-group">
           <label for="secret">Secret Questions</label>
-          <select id="secret" class="form-control" name="secret" ngModel required #secret="ngModel">
+          <select id="secret" class="form-control" name="secret" [ngModel]="defaultQuestion" required #secret="ngModel">
             <option value="pet">Your first Pet?</option>
             <option value="teacher">Your first teacher?</option>
-          </select>
+          </select> 
           <span *ngIf="!secret.valid && secret.touched" class="form-text text-muted text-danger">Please select a secret question.</span>
         </div>
         <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
