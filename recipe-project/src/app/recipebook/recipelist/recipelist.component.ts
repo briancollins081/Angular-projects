@@ -11,18 +11,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class RecipelistComponent implements OnInit {
   recipes: Recipe[];
   constructor(
-    private recipeBookService: RecipeBookService, 
-    private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private recipeBookService: RecipeBookService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.recipes = this.recipeBookService.getRecipes();
   }
 
-  selectRecipe(i:number){
-    // console.log("Selected the recipe");
-    // this.recipeBookService.recipeSelected.emit(recipe);
-    this.router.navigate(['/recipebook/'+i]);
-    this.activatedRoute
+  selectRecipe(i: number) {
+    this.router.navigate(['/recipebook/' + i]);
   }
 }
