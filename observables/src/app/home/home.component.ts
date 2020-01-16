@@ -18,15 +18,31 @@ export class HomeComponent implements OnInit, OnDestroy {
     const customCountObservable = Observable.create(observer => {
       let c = 0;
       setInterval(() => {
+        if (c === 3) {
+          observer.complete();
+        }
+        if (c > 3) {
+          observer.error(new Error('Count has exceeded maximum number: 3'));
+        }
         observer.next(c);
         c++
       }, 1000)
 
     });
 
-    this.customCntObservable = customCountObservable.subscribe((count) => {
-      console.log(count);
-    })
+    this.customCntObservable = customCountObservable
+      .subscribe(
+        (data) => {
+          console.log(data);
+        },
+        (error) => {
+          console.log(error);
+          alert(error.message);
+        },
+        ()=>{
+          console.log("Observable Completed Successfully");
+        }
+      )
   }
 
   ngOnDestroy() {
