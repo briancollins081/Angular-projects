@@ -1,0 +1,6 @@
+<ul class="list-group">
+    <li class="list-group-item text-danger" 
+        *ngFor="let user of users; let id=index"
+        >{{user}} &nbsp; <a (click)="setToActive(id)"  href="#">Move to Active</a>
+    </li>
+</ul>

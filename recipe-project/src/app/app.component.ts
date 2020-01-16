@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'recipe-project';
+  title = 'ABC Recipe Gallery';
+  
+  isRecipeActive: boolean = true;
+  isShoppingActive: boolean = false;
+
+  onMenuChanged(menuData: {recipeActive: boolean, shoppingActive: boolean}){
+    this.isShoppingActive=menuData.shoppingActive;
+    this.isRecipeActive=menuData.recipeActive;
+  }
+
 }

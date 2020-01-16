@@ -1,0 +1,10 @@
+<div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="card" *ngFor="let evenComponent of evenComponents">
+            <div class="card-body">
+                <h5 class="card-title">{{evenComponent.name}}</h5>
+                <p class="card-text">The value for our event component is: <br>{{evenComponent.value}}</p>
+            </div>
+        </div>
+    </div>
+</div>

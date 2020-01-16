@@ -1,0 +1,107 @@
+<div class="container p-4">
+  <div class="row">
+    <div class="col-lg-12">
+      <button class="btn btn-primary" type="button" (click)="onlyOdd=!onlyOdd">Only show odd numbers.</button>
+      <hr>
+      <ul class="list-group mt-4">
+        <div *ngIf="onlyOdd">
+          <li 
+            class="list-group-item" 
+            *ngFor="let n of oddNumbers" 
+            [ngClass]="{odd: n % 2 !== 0}"
+            [ngStyle]="{backgroundColor: n % 2 === 1 ? 'olive': 'transparent'}"
+          >
+            {{n}}
+          </li>
+        </div>
+        <!-- <div *ngIf="!onlyOdd">
+          <li 
+            class="list-group-item" 
+            *ngFor="let n of evenNumbers" 
+            [ngClass]="{odd: n % 2 !== 0}"
+            [ngStyle]="{backgroundColor: n % 2 === 1 ? 'olive': 'transparent'}"
+          >
+            {{n}}
+          </li>
+        </div>
+        <ng-template [ngIf]="!onlyOdd">
+          <div>
+            <li 
+              class="list-group-item" 
+              *ngFor="let n of evenNumbers" 
+              [ngClass]="{odd: n % 2 !== 0}"
+              [ngStyle]="{backgroundColor: n % 2 === 1 ? 'red': 'transparent'}"
+            >
+              {{n}}
+            </li>
+          </div>
+        </ng-template> -->
+        
+        <div *appUnless="onlyOdd">
+          <li 
+            class="list-group-item" 
+            *ngFor="let n of evenNumbers" 
+            [ngClass]="{odd: n % 2 !== 0}"
+            [ngStyle]="{backgroundColor: n % 2 === 1 ? 'olive': 'transparent'}"
+          >
+            {{n}}
+          </li>
+        </div>
+      </ul>
+      <p appBasicHighlight class="p-3 my-2">Style me using basic directive</p>
+      <p appBetterHighlight class="p-3 my-2" [defaultColor]="'pink'" [appBetterHighlight]="'purple'">Style me using better directive</p>
+      
+      <div [ngSwitch]="value">
+        <div *ngSwitchCase="10">
+          <div class="card">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <div class="alert alert-danger" role="alert">
+                    New Value Message
+                  </div>
+                </h5>
+              <p class="card-text">The value is 10!</p>
+            </div>
+          </div>
+        </div>
+        <div *ngSwitchCase="100">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <div class="alert alert-danger" role="alert">
+                  New Value Message
+                </div>
+              </h5>
+              <p class="card-text">The value is 100!</p>
+            </div>
+          </div>
+        </div>
+        <div *ngSwitchCase="1000">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <div class="alert alert-danger" role="alert">
+                  New Value Message
+                </div>
+              </h5>
+              <p class="card-text">The value is 1000!</p>
+            </div>
+          </div>
+        </div>
+        <div *ngSwitchDefault>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <div class="alert alert-danger" role="alert">
+                  New Value Message
+                </div>
+              </h5>
+              <p class="card-text">The value is 500!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

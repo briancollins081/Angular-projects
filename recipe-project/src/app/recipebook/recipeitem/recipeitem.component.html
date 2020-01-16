@@ -1,1 +1,13 @@
-<p>recipeitem works!</p>
+<a class="card" style="text-decoration: none; color:inherit;">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-7">
+                <h5 class="card-title text-center">Recipe Name: {{ singleRecipe.name }}</h5>
+                <div class="card-text"><h6>Description:</h6> {{ singleRecipe.description }}</div>
+            </div>
+            <div class="col-md-5">
+                <img class="img-fluid" [src]="singleRecipe.imagePath" alt="{{ singleRecipe.name }}">
+            </div>
+        </div>
+    </div>
+</a>

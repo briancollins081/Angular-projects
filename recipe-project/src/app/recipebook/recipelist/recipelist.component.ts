@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Recipe } from "../recipe.model";
+import { RecipeBookService } from '../recipebook.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recipelist',
@@ -7,21 +9,20 @@ import { Recipe } from "../recipe.model";
   styleUrls: ['./recipelist.component.css']
 })
 export class RecipelistComponent implements OnInit {
-  recipes: Recipe[] = [
-    new Recipe(
-      "Abc Test Recipe", 
-      "Grilled Eggs mixed with spices at your desired taste", 
-      "https://get.pxhere.com/photo/restaurant-dish-meal-food-vegetable-recipe-meat-cuisine-asian-food-garnish-dinner-tasty-vegetarian-food-gastronomy-mediterranean-food-fried-food-animal-source-foods-middle-eastern-food-adana-kebab-mixed-grill-fat-ny-ros-1376098.jpg"
-    ),
-    new Recipe(
-      "Abc Test Recipe", 
-      "Grilled Eggs mixed with spices at your desired taste", 
-      "https://get.pxhere.com/photo/restaurant-dish-meal-food-vegetable-recipe-meat-cuisine-asian-food-garnish-dinner-tasty-vegetarian-food-gastronomy-mediterranean-food-fried-food-animal-source-foods-middle-eastern-food-adana-kebab-mixed-grill-fat-ny-ros-1376098.jpg"
-    )
-  ];
-  constructor() { }
+  recipes: Recipe[];
+  constructor(
+    private recipeBookService: RecipeBookService, 
+    private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.recipes = this.recipeBookService.getRecipes();
   }
 
+  selectRecipe(i:number){
+    // console.log("Selected the recipe");
+    // this.recipeBookService.recipeSelected.emit(recipe);
+    this.router.navigate(['/recipebook/'+i]);
+    this.activatedRoute
+  }
 }
