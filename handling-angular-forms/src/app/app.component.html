@@ -41,13 +41,14 @@
         <p>Your reply is: {{secretAns}}</p>
 
         <b>Please select your gender</b>
-
-        <div class="radio" *ngFor="let gender of genders">
+        <hr>
+        <div class="radio" *ngFor="let gender of genders; let i = index">
           <label>
-            <input type="radio" name="gender" id="gender" value="gender" ngModel required>
+            <input type="radio" name="gender" id="gender{{i}}" value="{{gender}}" ngModel>
             {{gender.charAt(0).toUpperCase()+gender.substr(1)}}
           </label>
         </div>
+        
 
         <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
       </form>
