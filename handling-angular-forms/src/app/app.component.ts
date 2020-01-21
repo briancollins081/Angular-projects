@@ -7,11 +7,19 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  @ViewChild('f', {static: true}) form:NgForm;
-  defaultQuestion="teacher";
-  secretAns:string='';
-  genders:string[] = ['male', 'female', 'other'];
-  
+  @ViewChild('f', { static: true }) form: NgForm;
+  defaultQuestion = "teacher";
+  secretAns: string = '';
+  genders: string[] = ['male', 'female', 'other'];
+  user = {
+    username: '',
+    email: '',
+    secretQuestion: '',
+    answer: '',
+    gender: ''
+  };
+  submitted = false;
+
   suggestUserName() {
     const suggestedName = 'Superuser';
     /* this.form.setValue({
@@ -24,7 +32,7 @@ export class AppComponent {
       gender: 'male'
     }); */
     this.form.form.patchValue({
-      userData:{
+      userData: {
         username: suggestedName
       }
     })
@@ -34,7 +42,13 @@ export class AppComponent {
     console.log(frm); 
   } */
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.form);
+    this.submitted = true;
+    this.user.username = this.form.value.userData.username;
+    this.user.email = this.form.value.userData.email;
+    this.user.secretQuestion = this.form.value.secret;
+    this.user.answer = this.form.value.secretAns;
+    this.user.gender = this.form.value.gender;
   }
 }
