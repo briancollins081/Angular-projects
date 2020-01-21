@@ -21,7 +21,8 @@
                 email.</span>
             </div>
           </div>
-          <span *ngIf="!userData.valid && userData.touched" class="form-text text-muted text-danger">User data is invalid, please check the highlighted fields.</span>
+          <span *ngIf="!userData.valid && userData.touched" class="form-text text-muted text-danger">User data is
+            invalid, please check the highlighted fields.</span>
         </div>
         <div class="form-group">
           <label for="secret">Secret Questions</label>
@@ -40,14 +41,14 @@
         <p>Your reply is: {{secretAns}}</p>
 
         <b>Please select your gender</b>
-        <div class="form-group">
-          <div class="form-check" *ngFor="let gender of genders; let i = index;">
-            <input class="form-check-input" type="radio" name="gender" [value]="gender" ngModel required>
-            <label class="form-check-label" for="gender">
-              &nbsp;{{(gender.charAt(0).toUpperCase())+gender.substr(1)}}
-            </label>
-          </div>
+
+        <div class="radio" *ngFor="let gender of genders; let i=index">
+          <label>
+            <input type="radio" name="gender" id="gender" value="gender" ngModel required [checked]="i==0">
+            {{gender.charAt(0).toUpperCase()+gender.substr(1)}}
+          </label>
         </div>
+
         <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
       </form>
     </div>
