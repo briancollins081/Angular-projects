@@ -12,7 +12,8 @@
           <div class="form-group">
             <label for="email">Email</label>
             <input type="text" id="email" formControlName="email" class="form-control">
-            <span *ngIf="signupForm.get('userData.email').touched && !signupForm.get('userData.email').valid" class="help-block">Please enter a valid
+            <span *ngIf="signupForm.get('userData.email').touched && !signupForm.get('userData.email').valid"
+              class="help-block">Please enter a valid
               email.</span>
           </div>
         </div>
@@ -21,6 +22,19 @@
             <input type="radio" formControlName="gender" [value]="gender">{{ gender }}
           </label>
         </div>
+        <div class="panel panel-default">
+          <div class="panel-body" formArrayName="hobbies">
+            <h4>Your Hobbies</h4>
+            <button type="button" class="btn btn-info mb-2" (click)="onAddHobby()">Add a Hobby</button><hr>
+            <div 
+              class="form-group" 
+              *ngFor="let hobbyControl of signupForm.get('hobbies').controls; let i = index"
+              >
+              <input type="text" [formControlName]="i" class="form-control my-2" placeholder="Enter your ({{i+1}}) hobby">
+            </div>
+          </div>
+        </div>
+
         <button class="btn btn-primary" type="submit">Submit</button>
       </form>
     </div>
