@@ -1,3 +1,10 @@
 .container {
   margin-top: 30px;
 }
+.form-group > .help-block, form .help-block{
+  color: #b80202;
+}
+
+form .ng-invalid .ng-touched{
+  border: 2px solid #d60000;
+}
