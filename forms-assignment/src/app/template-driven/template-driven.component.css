@@ -1,0 +1,9 @@
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched{
+  border: 1.5px solid rgba(255, 0, 0, 0.678);
+}
+
+span.text-red{
+    color: rgb(148, 23, 23);
+}

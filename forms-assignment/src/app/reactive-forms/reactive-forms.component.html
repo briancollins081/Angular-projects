@@ -1,0 +1,25 @@
+<form (ngSubmit)="onSubmit(f)" [formGroup]="projectRegForm">
+    <div class="form-group">
+        <label for="pname">Project Name:</label>
+        <input id="pname" class="form-control" type="text" formControlName="pname">
+        <!-- <span class="text-red" *ngIf="!projectname.valid && projectname.touched">Project name field can not be empty!</span> -->
+    </div>
+    <div class="form-group">
+        <label for="pname">Project E-Mail:</label>
+        <input id="pemail" class="form-control" type="email" formControlName="pemail">
+        <!-- <span class="text-red" *ngIf="!projectemail.valid && projectemail.touched">Email field can not be empty!</span> -->
+
+    </div>
+    <div class="form-group">
+        <label for="pstatus">Project Status:</label>
+        <select id="pstatus" class="form-control" formControlName="pstatus">
+            <option value="">Select a status</option>
+            <option value="stable">Stable</option>
+            <option value="critical">Critical</option>
+            <option value="finished">Finished</option>
+        </select>
+        <!-- <span class="text-red" *ngIf="!projectstatus.valid && projectstatus.touched">Please select a project status!</span> -->
+    </div>
+    <hr>
+    <button class="btn btn-info" type="submit">Submit</button>
+</form>
