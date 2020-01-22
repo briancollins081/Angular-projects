@@ -8,3 +8,6 @@
 form input.ng-invalid.ng-touched{
   border: 2px solid #d60000;
 }
+form input.ng-pending{
+  border: 2px solid rgba(255, 155, 119, 0.863);
+}
