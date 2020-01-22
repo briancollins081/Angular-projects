@@ -7,7 +7,10 @@
             <label for="username">Username</label>
             <input type="text" id="username" formControlName="username" class="form-control">
             <span *ngIf="signupForm.get('userData.username').touched && !signupForm.get('userData.username').valid"
-              class="help-block">Please enter a valid name.</span>
+              class="help-block">
+              <span *ngIf="signupForm.get('userData.username').errors['required']">This field is required.</span>
+              <span *ngIf="signupForm.get('userData.username').errors['nameIsForbidden']">This name is forbidden / invalid.</span>
+            </span>
           </div>
           <div class="form-group">
             <label for="email">Email</label>
