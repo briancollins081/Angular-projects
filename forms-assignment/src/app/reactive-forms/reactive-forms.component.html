@@ -2,12 +2,15 @@
     <div class="form-group">
         <label for="pname">Project Name:</label>
         <input id="pname" class="form-control" type="text" formControlName="pname">
-        <!-- <span class="text-red" *ngIf="!projectname.valid && projectname.touched">Project name field can not be empty!</span> -->
+        <span class="text-red" *ngIf="!projectRegForm.get('pname').valid && projectRegForm.get('pname').touched">
+            <span *ngIf="projectRegForm.get('pname').errors['required']">Project name field can not be empty!</span>
+            <span *ngIf="projectRegForm.get('pname').errors['projectNameIsForbidden']">Project name is forbidden!</span>
+        </span>
     </div>
     <div class="form-group">
         <label for="pname">Project E-Mail:</label>
         <input id="pemail" class="form-control" type="email" formControlName="pemail">
-        <!-- <span class="text-red" *ngIf="!projectemail.valid && projectemail.touched">Email field can not be empty!</span> -->
+        <span class="text-red" *ngIf="!projectRegForm.get('pemail').valid && projectRegForm.get('pemail').touched">Email field can not be empty!</span>
 
     </div>
     <div class="form-group">
@@ -18,8 +21,8 @@
             <option value="critical">Critical</option>
             <option value="finished">Finished</option>
         </select>
-        <!-- <span class="text-red" *ngIf="!projectstatus.valid && projectstatus.touched">Please select a project status!</span> -->
+        <span class="text-red" *ngIf="!projectRegForm.get('pstatus').valid && projectRegForm.get('pstatus').touched">Please select a project status!</span>
     </div>
     <hr>
-    <button class="btn btn-info" type="submit">Submit</button>
+    <button class="btn btn-info" type="submit" [disabled]="!projectRegForm.valid">Submit</button>
 </form>
