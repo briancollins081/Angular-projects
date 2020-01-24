@@ -26,7 +26,7 @@ export class ShoppinglistComponent implements OnInit, OnDestroy /* , DoCheck */ 
     // this.oldLength = this.ingredients.length;
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.ingridientsChangeSubscription.unsubscribe();
   }
 
@@ -35,4 +35,8 @@ export class ShoppinglistComponent implements OnInit, OnDestroy /* , DoCheck */ 
       this.ingredients = this.shoppingListService.getIngredients();
     }
   } */
+  editIngridient(id:number) {
+    this.shoppingListService.editIngridientSubject.next(id);
+  }
+  
 }

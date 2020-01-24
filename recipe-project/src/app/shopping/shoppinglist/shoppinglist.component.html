@@ -1,5 +1,8 @@
 <ul class="list-group">
-    <a class="list-group-item d-flex justify-content-space-between align-items-center" *ngFor="let ingridient of ingredients" >
+    <a class="list-group-item d-flex justify-content-space-between align-items-center"
+        *ngFor="let ingridient of ingredients; let i=index"
+        (click)="editIngridient(i)" 
+    >
         {{ ingridient.name }} <span class="badge badge-success badge-pill ml-auto">{{ ingridient.amount }}</span>
     </a>
 </ul>
