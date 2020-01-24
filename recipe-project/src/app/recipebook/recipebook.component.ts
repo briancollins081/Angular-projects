@@ -9,6 +9,6 @@ export class RecipebookComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 }

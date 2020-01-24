@@ -15,7 +15,7 @@ export class ReactiveFormsComponent implements OnInit {
 
   ngOnInit() {
     this.projectRegForm = new FormGroup({
-      'pname': new FormControl(null, [Validators.required], [this.forbiddenProjectNamesAsync.bind(this)]),
+      'pname': new FormControl(null, [Validators.required, this.forbiddenProjectNames.bind(this)]),
       'pemail': new FormControl(null, [Validators.required, Validators.email]),
       'pstatus': new FormControl(null, Validators.required)
     });
