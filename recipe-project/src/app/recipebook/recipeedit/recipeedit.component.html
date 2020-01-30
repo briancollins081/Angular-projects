@@ -37,14 +37,14 @@
                                     id="imagePath" 
                                     class="form-control"
                                     formControlName="imagePath"
-                                    >
+                                    #imageUrl>
                                 </div>
                         </div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-sm-12">
-                            <img class="img-fluid" src="" alt="Recipe Image">
+                            <img class="img-fluid" [src]="imageUrl.value" alt="Recipe Image">
                         </div>
                     </div>
                     <hr>
