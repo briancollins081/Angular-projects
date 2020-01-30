@@ -64,10 +64,10 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-sm-12" formArrayName="ingridients">
+                        <div class="col-sm-12" formArrayName="ingredients">
                             <div 
                                 class="row mb-3"
-                                *ngFor="let ingridientCtl of recipeForm.get('ingridients').controls; let i = index;"
+                                *ngFor="let ingredientCtl of recipeForm.get('ingredients').controls; let i = index;"
                                 [formGroupName]="i"
                             >
                                 <div class="col-sm-8">
@@ -87,7 +87,13 @@
                                 <div class="col-sm-2">
                                     <button class="btn btn-danger" type="button"><i class="fas fa-times-circle"></i></button>
                                 </div>
-                            </div>                                
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-success" type="button" (click)="onAddIngredient()">Add Ingridient</button>
+                                </div>
+                            </div>                            
                         </div>
                     </div>
                 </form>
