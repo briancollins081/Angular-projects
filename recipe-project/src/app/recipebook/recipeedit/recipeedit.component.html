@@ -64,18 +64,24 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-sm-12">
-                            <div class="row">
+                        <div class="col-sm-12" formArrayName="ingridients">
+                            <div 
+                                class="row mb-3"
+                                *ngFor="let ingridientCtl of recipeForm.get('ingridients').controls; let i = index;"
+                                [formGroupName]="i"
+                            >
                                 <div class="col-sm-8">
                                     <input 
                                     type="text"  
                                     class="form-control"
+                                    formControlName="name"
                                     >
                                 </div>
                                 <div class="col-sm-2">
                                     <input 
                                     type="text" 
                                     class="form-control"
+                                    formControlName="amount"
                                     >
                                 </div>
                                 <div class="col-sm-2">

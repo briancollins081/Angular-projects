@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { RecipeBookService } from '../recipebook.service';
 import { Recipe } from '../recipe.model';
 
@@ -15,12 +15,12 @@ export class RecipeeditComponent implements OnInit {
   recipeForm: FormGroup;
 
   constructor(private activatedRoute: ActivatedRoute,
-              private recipeBookService: RecipeBookService) { }
+    private recipeBookService: RecipeBookService) { }
 
   ngOnInit() {
     this.activatedRoute
       .params
-      .subscribe((params:Params)=>{
+      .subscribe((params: Params) => {
         this.id = +params['id'];
         this.editMode = (params['id'] != null);
         // console.log(this.editMode);
@@ -28,25 +28,38 @@ export class RecipeeditComponent implements OnInit {
       })
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.recipeForm);
   }
 
-  initForm(){
-    let recipe = this.recipeBookService.getRecipe(this.id);
+  initForm() {
     let recipeName = '';
     let recipeImagePath = '';
     let recipeDescription = '';
-    if(this.editMode){
+    let recipeIngridients = new FormArray([]);
+
+    if (this.editMode) {
+      const recipe = this.recipeBookService.getRecipe(this.id);
       recipeName = recipe.name;
       recipeImagePath = recipe.imagePath;
       recipeDescription = recipe.description;
+      if (recipe['ingredients']) {
+        for (let ingridient of recipe['ingredients']) {
+          recipeIngridients.push(new FormGroup({
+            name: new FormControl(ingridient.name),
+            amount: new FormControl(ingridient.amount)
+          }));
+        }
+      }
     }
+
     this.recipeForm = new FormGroup({
       'name': new FormControl(recipeName),
       'imagePath': new FormControl(recipeImagePath),
-      'description': new FormControl(recipeDescription)
+      'description': new FormControl(recipeDescription),
+      'ingridients': recipeIngridients
     });
+
   }
 
 }
