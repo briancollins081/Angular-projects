@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./shoppinglistedit.component.css']
 })
 export class ShoppinglisteditComponent implements OnInit {
-  @ViewChild('f', {static: false}) editForm:NgForm;
+  @ViewChild('f', { static: false }) editForm: NgForm;
   editIngridientSubscription: Subscription;
   editingIndex: number;
   editingMode: boolean;
@@ -24,20 +24,22 @@ export class ShoppinglisteditComponent implements OnInit {
       .subscribe((id: number) => {
         this.editingIndex = id;
         this.editingMode = true;
-        this.editedItem = this.shoppingListService.getIngredientById(id);
+        let currentIngridient = this.shoppingListService.getIngredientById(id);
         this.editForm.setValue({
-          name: this.editedItem.name,
-          amount: this.editedItem.amount
+          name: currentIngridient.name,
+          amount: currentIngridient.amount
         });
       })
   }
 
   onAddNewItem(form: NgForm) {
-    const ingredient = new Ingredient(form.value.name, form.value.amount);
-    this.shoppingListService.addIngredient(ingredient);
-    console.log("All ingredients: ");
-    console.log(this.shoppingListService.getIngredients());
-
+    this.editedItem = new Ingredient(form.value.name, form.value.amount);
+    if (this.editingMode) {
+      this.shoppingListService.updateIngredient(this.editingIndex, this.editedItem);
+      console.log(this.shoppingListService.getIngredientById(this.editingIndex));
+    } else {
+      this.shoppingListService.addIngredient(this.editedItem);
+    }
   }
 
   onDeleteIngredient() {

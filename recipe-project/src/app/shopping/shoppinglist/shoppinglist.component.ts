@@ -23,20 +23,14 @@ export class ShoppinglistComponent implements OnInit, OnDestroy /* , DoCheck */ 
         this.ingredients = newList;
       }
     );
-    // this.oldLength = this.ingredients.length;
   }
 
   ngOnDestroy() {
     this.ingridientsChangeSubscription.unsubscribe();
   }
-
-  /* ngDoCheck(){
-    if(this.shoppingListService.getIngredients.length !== this.oldLength){
-      this.ingredients = this.shoppingListService.getIngredients();
-    }
-  } */
+  
   editIngridient(id:number) {
     this.shoppingListService.editIngridientSubject.next(id);
   }
-  
+
 }
