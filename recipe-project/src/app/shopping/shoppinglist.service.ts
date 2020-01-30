@@ -10,10 +10,6 @@ export class ShoppingListService {
         new Ingredient('Tomatoes', 10)
       ];
 
-    getIngredients(): Ingredient[]{       
-        return this.ingredients.slice();
-    }
-
     addIngredient(ingredient: Ingredient){
         // console.log("Adding new ingredient: "+ ingredient);
         this.ingredients.push(ingredient);
@@ -26,6 +22,9 @@ export class ShoppingListService {
         });
         this.ingreidientsChange.next(this.getIngredients());
     }
+    getIngredients(): Ingredient[]{       
+        return this.ingredients.slice();
+    }
 
     getIngredientById(index): Ingredient{
         return this.ingredients[index];
@@ -33,6 +32,11 @@ export class ShoppingListService {
 
     updateIngredient(index, ingredient: Ingredient){
         this.ingredients[index] = ingredient;
+        this.ingreidientsChange.next(this.getIngredients());
+    }
+
+    deleteIngredient(index){
+        this.ingredients.splice(index,1);
         this.ingreidientsChange.next(this.getIngredients());
     }
 
