@@ -16,11 +16,11 @@ export class RecipelistComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.recipes = this.recipeBookService.getRecipes();
     this.recipeBookService.recipesChanged
       .subscribe((recipes: Recipe[]) => {
         this.recipes = recipes;
       });
-    this.recipes = this.recipeBookService.getRecipes();
   }
 
   selectRecipe(i: number) {

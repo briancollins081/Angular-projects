@@ -11,7 +11,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./recipedetail.component.css']
 })
 export class RecipedetailComponent implements OnInit {
-  id:number;
+  id: number;
   currentRecipe: Recipe;
   ingredients: Ingredient[];
   constructor(
@@ -33,7 +33,9 @@ export class RecipedetailComponent implements OnInit {
     this.router.navigate(['/shoppinglist'])
   }
 
-  onDeleteRecipe(){
-    this.shoppingListService.deleteIngredient(this.id);
+  onDeleteRecipe() {
+    this.recipeBookService.deleteRecipe(this.id);
+
+    this.router.navigate(['/recipebook']);
   }
 }
