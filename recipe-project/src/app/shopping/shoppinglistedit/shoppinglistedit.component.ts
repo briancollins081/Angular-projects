@@ -25,10 +25,12 @@ export class ShoppinglisteditComponent implements OnInit {
         this.editingIndex = id;
         this.editingMode = true;
         let currentIngridient = this.shoppingListService.getIngredientById(id);
-        this.editForm.setValue({
-          name: currentIngridient.name,
-          amount: currentIngridient.amount
-        });
+        setTimeout(()=>{
+          this.editForm.form.patchValue({
+            name: currentIngridient.name,
+            amount: currentIngridient.amount
+          });
+        },);
       })
   }
 
