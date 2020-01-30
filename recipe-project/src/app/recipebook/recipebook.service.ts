@@ -40,10 +40,24 @@ export class RecipeBookService {
       ]
     )
   ];
+  recipesChanged = new Subject<Recipe[]>();
   getRecipes() {
     return this.recipes.slice();
   }
   getRecipe(id:number){
     return this.getRecipes()[id];
+  }
+  addRecipe(recipe: Recipe){
+    this.recipes.push(recipe);
+    this.recipesChanged.next(this.getRecipes());
+  }
+  updateRecipe(index:number, upRecipe: Recipe){
+    this.recipes[index] = upRecipe;
+    this.recipesChanged.next(this.getRecipes());
+  }
+  deleteRecipe(index:number){
+    this.recipes.splice(index, 1);
+    this.recipesChanged.next(this.getRecipes());
+
   }
 }

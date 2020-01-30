@@ -14,7 +14,7 @@
                 <a class="dropdown-item" [routerLink]="['/recipebook/', id, 'edit']">Edit Recipe</a>
                 <!-- <a class="dropdown-item" [routerLink]="['../', id, 'edit']">Edit Recipe</a> -->
 
-                <a class="dropdown-item">Delete Recipe</a>
+                <a class="dropdown-item" (click)="onDeleteRecipe()">Delete Recipe</a>
             </div>
         </div>
     </div>
