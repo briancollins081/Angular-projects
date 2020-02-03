@@ -11,8 +11,8 @@
             {{ server.status }}
           </span>
           <strong>{{ server.name }}</strong> | 
-          {{ server.instanceType | uppercase }} | 
-          {{ server.started | date: 'fullDate'}}
+          {{ server.instanceType | titlecase }} | 
+          {{ server.started | date: 'fullDate' | titlecase}}
         </li>
       </ul>
     </div>
