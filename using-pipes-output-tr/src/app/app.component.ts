@@ -6,6 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  appStatus = new Promise((resolve, reject)=>{
+    let timer1 = setTimeout(()=>{
+      resolve('stable');
+      clearTimeout(timer1);
+    },2000);
+  });
+
   servers = [
     {
       instanceType: 'medium',
